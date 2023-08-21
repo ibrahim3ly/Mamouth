@@ -74,45 +74,6 @@ class _PhotoEditorWidgetState extends State<PhotoEditorWidget> {
                 borderWidth: 1.0,
                 buttonSize: 40.0,
                 icon: Icon(
-                  Icons.undo,
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 22.0,
-                ),
-                onPressed: () {
-                  print('IconButton pressed ...');
-                },
-              ),
-              FlutterFlowIconButton(
-                borderRadius: 20.0,
-                borderWidth: 1.0,
-                buttonSize: 40.0,
-                icon: Icon(
-                  Icons.redo,
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 22.0,
-                ),
-                onPressed: () {
-                  print('IconButton pressed ...');
-                },
-              ),
-              FlutterFlowIconButton(
-                borderRadius: 20.0,
-                borderWidth: 1.0,
-                buttonSize: 40.0,
-                icon: Icon(
-                  Icons.save_alt_rounded,
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 24.0,
-                ),
-                onPressed: () {
-                  print('IconButton pressed ...');
-                },
-              ),
-              FlutterFlowIconButton(
-                borderRadius: 20.0,
-                borderWidth: 1.0,
-                buttonSize: 40.0,
-                icon: Icon(
                   Icons.print,
                   color: FlutterFlowTheme.of(context).primary,
                   size: 22.0,
@@ -142,7 +103,7 @@ class _PhotoEditorWidgetState extends State<PhotoEditorWidget> {
             ),
             Container(
               width: double.infinity,
-              height: 185.0,
+              height: 85.0,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(

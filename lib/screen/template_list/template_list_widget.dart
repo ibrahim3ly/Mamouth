@@ -62,83 +62,99 @@ class _TemplateListWidgetState extends State<TemplateListWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 8.0),
-                            child: FlutterFlowChoiceChips(
-                              options: [
-                                ChipData('All'),
-                                ChipData('Schaduler'),
-                                ChipData('ToDo List'),
-                                ChipData('Business Card'),
-                                ChipData('Fun'),
-                                ChipData('Frame'),
-                                ChipData('')
-                              ],
-                              onChanged: (val) => setState(
-                                  () => _model.choiceChipsValues = val),
-                              selectedChipStyle: ChipStyle(
-                                backgroundColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context).info,
-                                    ),
-                                iconColor: FlutterFlowTheme.of(context).info,
-                                iconSize: 18.0,
-                                elevation: 2.0,
-                                borderColor: Color(0x4C080617),
-                                borderWidth: 1.0,
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              unselectedChipStyle: ChipStyle(
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                    ),
-                                iconColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                iconSize: 18.0,
-                                elevation: 0.0,
-                                borderColor: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                borderWidth: 1.0,
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              chipSpacing: 8.0,
-                              rowSpacing: 12.0,
-                              multiselect: true,
-                              initialized: _model.choiceChipsValues != null,
-                              alignment: WrapAlignment.start,
-                              controller: _model.choiceChipsValueController ??=
-                                  FormFieldController<List<String>>(
-                                ['All'],
+              Container(
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 4.0,
+                      color: Color(0x33000000),
+                      offset: Offset(0.0, 2.0),
+                    )
+                  ],
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 8.0),
+                              child: FlutterFlowChoiceChips(
+                                options: [
+                                  ChipData('All'),
+                                  ChipData('Schaduler'),
+                                  ChipData('ToDo List'),
+                                  ChipData('Business Card'),
+                                  ChipData('Fun'),
+                                  ChipData('Frame'),
+                                  ChipData('')
+                                ],
+                                onChanged: (val) => setState(
+                                    () => _model.choiceChipsValue = val?.first),
+                                selectedChipStyle: ChipStyle(
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).accent3,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                      ),
+                                  iconColor: Color(0xFF4891A8),
+                                  iconSize: 18.0,
+                                  elevation: 2.0,
+                                  borderColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  borderWidth: 1.0,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                unselectedChipStyle: ChipStyle(
+                                  backgroundColor: Color(0xFFA4BBC3),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
+                                  iconColor: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  iconSize: 18.0,
+                                  elevation: 0.0,
+                                  borderColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  borderWidth: 1.0,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                chipSpacing: 8.0,
+                                rowSpacing: 12.0,
+                                multiselect: false,
+                                initialized: _model.choiceChipsValue != null,
+                                alignment: WrapAlignment.start,
+                                controller:
+                                    _model.choiceChipsValueController ??=
+                                        FormFieldController<List<String>>(
+                                  ['All'],
+                                ),
                               ),
                             ),
-                          ),
-                        ]
-                            .addToStart(SizedBox(width: 16.0))
-                            .addToEnd(SizedBox(width: 16.0)),
+                          ]
+                              .addToStart(SizedBox(width: 16.0))
+                              .addToEnd(SizedBox(width: 16.0)),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Expanded(

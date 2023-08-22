@@ -9,7 +9,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'home_model.dart';
 export 'home_model.dart';
@@ -163,7 +162,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                           duration: Duration(milliseconds: 320),
                           curve: Curves.easeIn,
                           width: double.infinity,
-                          height: 230.0,
+                          height: 240.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [Color(0xFFC2C0D8), Color(0xFF4B39EF)],
@@ -326,20 +325,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           width: 45.0,
                                           height: 45.0,
                                           decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            shape: BoxShape.circle,
+                                            color: Color(0xF7FFFFFF),
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                            shape: BoxShape.rectangle,
                                           ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.asset(
-                                                'assets/images/desk.png',
-                                                width: 32.0,
-                                                height: 32.0,
-                                                fit: BoxFit.fill,
+                                          child: Opacity(
+                                            opacity: 0.6,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  'assets/images/mini-printer_(1).png',
+                                                  width: 32.0,
+                                                  height: 32.0,
+                                                  fit: BoxFit.contain,
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -372,20 +376,26 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             width: 45.0,
                                             height: 45.0,
                                             decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              shape: BoxShape.circle,
+                                              color: Color(0xF7FFFFFF),
+                                              borderRadius:
+                                                  BorderRadius.circular(15.0),
+                                              shape: BoxShape.rectangle,
                                             ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.asset(
-                                                  'assets/images/mood-board.png',
-                                                  width: 32.0,
-                                                  height: 32.0,
-                                                  fit: BoxFit.fill,
+                                            child: Opacity(
+                                              opacity: 0.6,
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.asset(
+                                                    'assets/images/layout_(1).png',
+                                                    width: 32.0,
+                                                    height: 32.0,
+                                                    fit: BoxFit.contain,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -411,20 +421,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           width: 45.0,
                                           height: 45.0,
                                           decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            shape: BoxShape.circle,
+                                            color: Color(0xF7FFFFFF),
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                            shape: BoxShape.rectangle,
                                           ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.asset(
-                                                'assets/images/ideas_(2).png',
-                                                width: 32.0,
-                                                height: 32.0,
-                                                fit: BoxFit.fill,
+                                          child: Opacity(
+                                            opacity: 0.6,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  'assets/images/draft.png',
+                                                  width: 32.0,
+                                                  height: 32.0,
+                                                  fit: BoxFit.fill,
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -449,16 +464,27 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           width: 45.0,
                                           height: 45.0,
                                           decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            shape: BoxShape.circle,
+                                            color: Color(0xF7FFFFFF),
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                            shape: BoxShape.rectangle,
                                           ),
-                                          child: Lottie.network(
-                                            'https://lottie.host/7129689f-9c9a-4da7-aaf4-a2e075f99eeb/D2cbMYxK15.json',
-                                            width: 150.0,
-                                            height: 130.0,
-                                            fit: BoxFit.cover,
-                                            repeat: false,
-                                            animate: true,
+                                          child: Opacity(
+                                            opacity: 0.6,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  'assets/images/stars.png',
+                                                  width: 32.0,
+                                                  height: 32.0,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         Text(
@@ -485,182 +511,199 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 10.0, 8.0, 0.0),
-                          child: GridView(
-                            padding: EdgeInsets.zero,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 10.0,
-                              mainAxisSpacing: 0.0,
-                              childAspectRatio: 1.9,
-                            ),
-                            primary: false,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
+                              0.0, 10.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Stack(
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.09,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFDEE5EC),
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      child: Opacity(
-                                        opacity: 0.1,
+                              Container(
+                                width: 170.0,
+                                height: 85.0,
+                                child: Stack(
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 15.0, 0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
                                           height: MediaQuery.sizeOf(context)
                                                   .height *
-                                              0.1,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: Image.asset(
-                                                'assets/images/nnnn.png',
-                                              ).image,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation1']!),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 5.0, 0.0, 0.0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.asset(
-                                        'assets/images/ideas.png',
-                                        width: 40.0,
-                                        height: 40.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Opacity(
-                                    opacity: 0.7,
-                                    child: Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 35.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Ai Creativ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Color(0xFFA39EDB),
-                                                fontSize: 20.0,
-                                                letterSpacing: 5.0,
-                                                fontWeight: FontWeight.w900,
-                                                lineHeight: 2.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Stack(
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
                                               0.09,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFFDEE5EC),
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      child: Opacity(
-                                        opacity: 0.1,
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              0.1,
                                           decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: Image.asset(
-                                                'assets/images/nnnn.png',
-                                              ).image,
-                                            ),
+                                            color: Color(0x00DEE5EC),
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
                                           ),
-                                        ),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation2']!),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 5.0, 0.0, 0.0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.asset(
-                                        'assets/images/mood-board.png',
-                                        width: 40.0,
-                                        height: 40.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Opacity(
-                                    opacity: 0.7,
-                                    child: Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 35.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Studio',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Color(0xFFA39EDB),
-                                                fontSize: 20.0,
-                                                letterSpacing: 5.0,
-                                                fontWeight: FontWeight.w900,
-                                                lineHeight: 2.0,
+                                          child: Opacity(
+                                            opacity: 0.4,
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.1,
+                                              decoration: BoxDecoration(
+                                                color: Color(0x00F2F2F2),
+                                                image: DecorationImage(
+                                                  fit: BoxFit.cover,
+                                                  image: Image.asset(
+                                                    'assets/images/output-onlinepngtools.png',
+                                                  ).image,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                                border: Border.all(
+                                                  color: Color(0xFF191647),
+                                                ),
                                               ),
+                                            ),
+                                          ),
                                         ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation']!),
+                                            'containerOnPageLoadAnimation1']!),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          15.0, 0.0, 0.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/ideas.png',
+                                          width: 40.0,
+                                          height: 40.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Opacity(
+                                      opacity: 0.5,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 40.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Ai Creativ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: Color(0xFF191647),
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 5.0,
+                                                  fontWeight: FontWeight.w900,
+                                                  lineHeight: 2.0,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ],
+                              Container(
+                                width: 170.0,
+                                height: 85.0,
+                                child: Stack(
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 15.0, 0.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.09,
+                                          decoration: BoxDecoration(
+                                            color: Color(0x00DEE5EC),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          child: Opacity(
+                                            opacity: 0.4,
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.1,
+                                              decoration: BoxDecoration(
+                                                color: Color(0x00F2F2F2),
+                                                image: DecorationImage(
+                                                  fit: BoxFit.cover,
+                                                  image: Image.asset(
+                                                    'assets/images/output-onlinepngtools.png',
+                                                  ).image,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                                border: Border.all(
+                                                  color: Color(0xFF191647),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'containerOnPageLoadAnimation2']!),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          15.0, 0.0, 0.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/mood-board.png',
+                                          width: 40.0,
+                                          height: 40.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Opacity(
+                                      opacity: 0.5,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 40.0, 0.0, 0.0),
+                                          child: Text(
+                                            'My Studio',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: Color(0xFF191647),
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 5.0,
+                                                  fontWeight: FontWeight.w900,
+                                                  lineHeight: 2.0,
+                                                ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation']!),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ].divide(SizedBox(width: 8.0)),
                           ),
                         ),
                         Align(
@@ -705,6 +748,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 height: 163.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFD1DBE3),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.asset(
+                                                      'assets/images/output-onlinepngtools.png',
+                                                    ).image,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10.0),
@@ -762,6 +811,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFD1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
@@ -819,6 +874,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFD1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
@@ -866,6 +927,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 height: 60.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xCFD1DBE3),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.asset(
+                                                      'assets/images/output-onlinepngtools_(80).png',
+                                                    ).image,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10.0),
@@ -911,6 +978,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 height: 60.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFD1DBE3),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.asset(
+                                                      'assets/images/output-onlinepngtools_(80).png',
+                                                    ).image,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10.0),
@@ -956,6 +1029,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 height: 60.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFD1DBE3),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.asset(
+                                                      'assets/images/output-onlinepngtools_(80).png',
+                                                    ).image,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10.0),
@@ -1001,6 +1080,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 height: 60.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFD1DBE3),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.asset(
+                                                      'assets/images/output-onlinepngtools_(80).png',
+                                                    ).image,
+                                                  ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           10.0),
@@ -1107,10 +1192,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 70.0,
                                                   height: 163.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
+                                                    color: Color(0x00D1DBE3),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFDDC6C6),
+                                                    ),
                                                   ),
                                                   child: Opacity(
                                                     opacity: 0.8,
@@ -1159,25 +1247,28 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 60.0,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
+                                                    color: Color(0x00D1DBE3),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFDDC6C6),
+                                                    ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                            .fromSTEB(3.0, 3.0,
+                                                                3.0, 3.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               0.0),
                                                       child: Image.asset(
-                                                        'assets/images/ocr.png',
+                                                        'assets/images/scanning.png',
                                                         width: 100.0,
                                                         height: 75.0,
-                                                        fit: BoxFit.fill,
+                                                        fit: BoxFit.cover,
                                                       ),
                                                     ),
                                                   ),
@@ -1205,22 +1296,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 60.0,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
+                                                    color: Color(0x00D1DBE3),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFDDC6C6),
+                                                    ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                            .fromSTEB(3.0, 3.0,
+                                                                3.0, 3.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               0.0),
                                                       child: Image.asset(
-                                                        'assets/images/barcode-scan.png',
+                                                        'assets/images/qr-code_(1).png',
                                                         width: 100.0,
                                                         height: 75.0,
                                                         fit: BoxFit.fill,
@@ -1251,16 +1345,19 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 60.0,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xCFD1DBE3),
+                                                    color: Color(0x00D1DBE3),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFDDC6C6),
+                                                    ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                            .fromSTEB(3.0, 3.0,
+                                                                3.0, 3.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1297,22 +1394,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 60.0,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
+                                                    color: Color(0x00D1DBE3),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFDDC6C6),
+                                                    ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                            .fromSTEB(3.0, 3.0,
+                                                                3.0, 3.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               0.0),
                                                       child: Image.asset(
-                                                        'assets/images/document.png',
+                                                        'assets/images/speech-bubbles.png',
                                                         width: 100.0,
                                                         height: 75.0,
                                                         fit: BoxFit.fill,
@@ -1343,22 +1443,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 60.0,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
+                                                    color: Color(0x00D1DBE3),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFDDC6C6),
+                                                    ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                            .fromSTEB(3.0, 3.0,
+                                                                3.0, 3.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               0.0),
                                                       child: Image.asset(
-                                                        'assets/images/domain.png',
+                                                        'assets/images/pie-chart.png',
                                                         width: 100.0,
                                                         height: 75.0,
                                                         fit: BoxFit.fill,
@@ -1389,16 +1492,19 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 60.0,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
+                                                    color: Color(0x00D1DBE3),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFDDC6C6),
+                                                    ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                            .fromSTEB(3.0, 3.0,
+                                                                3.0, 3.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(

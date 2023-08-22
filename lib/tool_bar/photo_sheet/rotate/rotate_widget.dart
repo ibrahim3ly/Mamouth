@@ -158,40 +158,76 @@ class _RotateWidgetState extends State<RotateWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/flip_(4).png',
-                                width: 35.0,
-                                height: 35.0,
-                                fit: BoxFit.none,
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('Home');
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/flip_(4).png',
+                                  width: 35.0,
+                                  height: 35.0,
+                                  fit: BoxFit.none,
+                                ),
                               ),
                             ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/flip_(3).png',
-                                width: 35.0,
-                                height: 35.0,
-                                fit: BoxFit.none,
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('Home');
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/flip_(3).png',
+                                  width: 35.0,
+                                  height: 35.0,
+                                  fit: BoxFit.none,
+                                ),
                               ),
                             ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/rotate_(1).png',
-                                width: 40.0,
-                                height: 40.0,
-                                fit: BoxFit.none,
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('Home');
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/rotate_(1).png',
+                                  width: 40.0,
+                                  height: 40.0,
+                                  fit: BoxFit.none,
+                                ),
                               ),
                             ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/rotate_(2).png',
-                                width: 40.0,
-                                height: 40.0,
-                                fit: BoxFit.none,
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('Home');
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/rotate_(2).png',
+                                  width: 40.0,
+                                  height: 40.0,
+                                  fit: BoxFit.none,
+                                ),
                               ),
                             ),
                           ],

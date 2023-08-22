@@ -89,250 +89,253 @@ class _PhotoeditorbarWidgetState extends State<PhotoeditorbarWidget>
               color: Color(0x61C3A0A0),
             ),
             Flexible(
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('Home');
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/replace.png',
-                              width: 28.0,
-                              height: 28.0,
-                              fit: BoxFit.none,
-                            ),
-                          ),
-                          Text(
-                            'Replace',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Color(0xFF0E1113),
-                                  fontSize: 12.0,
-                                ),
-                          ),
-                        ].divide(SizedBox(height: 8.0)),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        await showModalBottomSheet(
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          barrierColor: Color(0x00FFFFFF),
-                          enableDrag: false,
-                          context: context,
-                          builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: Container(
-                                height: 125.0,
-                                child: RotateWidget(),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('Home');
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/replace.png',
+                                width: 28.0,
+                                height: 28.0,
+                                fit: BoxFit.none,
                               ),
-                            );
-                          },
-                        ).then((value) => setState(() {}));
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/rotate_(3).png',
-                              width: 28.0,
-                              height: 28.0,
-                              fit: BoxFit.none,
                             ),
-                          ),
-                          Text(
-                            'Rotate',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Color(0xFF0E1113),
-                                  fontSize: 12.0,
-                                ),
-                          ),
-                        ].divide(SizedBox(height: 8.0)),
+                            Text(
+                              'Replace',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Color(0xFF0E1113),
+                                    fontSize: 12.0,
+                                  ),
+                            ),
+                          ].divide(SizedBox(height: 8.0)),
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('Home');
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/crop.png',
-                              width: 28.0,
-                              height: 28.0,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                          Text(
-                            'Crop',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Color(0xFF0E1113),
-                                  fontSize: 12.0,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            barrierColor: Color(0x00FFFFFF),
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: Container(
+                                  height: 125.0,
+                                  child: RotateWidget(),
                                 ),
-                          ),
-                        ].divide(SizedBox(height: 8.0)),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        await showModalBottomSheet(
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          barrierColor: Color(0x00FFFFFF),
-                          enableDrag: false,
-                          context: context,
-                          builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: Container(
-                                height: 143.0,
-                                child: FilterWidget(),
+                              );
+                            },
+                          ).then((value) => setState(() {}));
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/rotate_(3).png',
+                                width: 28.0,
+                                height: 28.0,
+                                fit: BoxFit.none,
                               ),
-                            );
-                          },
-                        ).then((value) => setState(() {}));
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/effects.png',
-                              width: 28.0,
-                              height: 28.0,
-                              fit: BoxFit.fitHeight,
                             ),
-                          ),
-                          Text(
-                            'Filter',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Color(0xFF0E1113),
-                                  fontSize: 12.0,
-                                ),
-                          ),
-                        ].divide(SizedBox(height: 8.0)),
+                            Text(
+                              'Rotate',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Color(0xFF0E1113),
+                                    fontSize: 12.0,
+                                  ),
+                            ),
+                          ].divide(SizedBox(height: 8.0)),
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        await showModalBottomSheet(
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          barrierColor: Color(0x00FFFFFF),
-                          enableDrag: false,
-                          context: context,
-                          builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: Container(
-                                height: 150.0,
-                                child: AdjustmentWidget(),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('Home');
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/crop.png',
+                                width: 28.0,
+                                height: 28.0,
+                                fit: BoxFit.contain,
                               ),
-                            );
-                          },
-                        ).then((value) => setState(() {}));
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/edit.png',
-                              width: 28.0,
-                              height: 28.0,
-                              fit: BoxFit.none,
                             ),
-                          ),
-                          Text(
-                            'Adjustment',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Color(0xFF0E1113),
-                                  fontSize: 12.0,
-                                ),
-                          ),
-                        ].divide(SizedBox(height: 8.0)),
+                            Text(
+                              'Crop',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Color(0xFF0E1113),
+                                    fontSize: 12.0,
+                                  ),
+                            ),
+                          ].divide(SizedBox(height: 8.0)),
+                        ),
                       ),
                     ),
-                  ),
-                ]
-                    .divide(SizedBox(width: 35.0))
-                    .addToStart(SizedBox(width: 15.0))
-                    .addToEnd(SizedBox(width: 15.0)),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            barrierColor: Color(0x00FFFFFF),
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: Container(
+                                  height: 145.0,
+                                  child: FilterWidget(),
+                                ),
+                              );
+                            },
+                          ).then((value) => setState(() {}));
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/effects.png',
+                                width: 28.0,
+                                height: 28.0,
+                                fit: BoxFit.fitHeight,
+                              ),
+                            ),
+                            Text(
+                              'Filter',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Color(0xFF0E1113),
+                                    fontSize: 12.0,
+                                  ),
+                            ),
+                          ].divide(SizedBox(height: 8.0)),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            barrierColor: Color(0x00FFFFFF),
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: Container(
+                                  height: 150.0,
+                                  child: AdjustmentWidget(),
+                                ),
+                              );
+                            },
+                          ).then((value) => setState(() {}));
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/edit.png',
+                                width: 28.0,
+                                height: 28.0,
+                                fit: BoxFit.none,
+                              ),
+                            ),
+                            Text(
+                              'Adjustment',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Color(0xFF0E1113),
+                                    fontSize: 12.0,
+                                  ),
+                            ),
+                          ].divide(SizedBox(height: 8.0)),
+                        ),
+                      ),
+                    ),
+                  ]
+                      .divide(SizedBox(width: 35.0))
+                      .addToStart(SizedBox(width: 5.0))
+                      .addToEnd(SizedBox(width: 5.0)),
+                ),
               ),
             ),
           ],

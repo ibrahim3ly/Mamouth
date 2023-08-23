@@ -5,3 +5,4 @@ export '/screen/photo_editor/photo_editor_widget.dart' show PhotoEditorWidget;
 export '/screen/template_list/template_list_widget.dart'
     show TemplateListWidget;
 export '/home/home/home_widget.dart' show HomeWidget;
+export '/screen/collage/collage_widget.dart' show CollageWidget;

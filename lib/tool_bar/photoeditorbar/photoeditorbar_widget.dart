@@ -291,15 +291,11 @@ class _PhotoeditorbarWidgetState extends State<PhotoeditorbarWidget>
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
                             barrierColor: Color(0x00FFFFFF),
-                            enableDrag: false,
                             context: context,
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: Container(
-                                  height: 150.0,
-                                  child: AdjustmentWidget(),
-                                ),
+                                child: AdjustmentWidget(),
                               );
                             },
                           ).then((value) => setState(() {}));

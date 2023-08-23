@@ -233,7 +233,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             0.0, 10.0, 10.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController,
-                                          autofocus: true,
+                                          readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -806,35 +806,52 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: Image.asset(
-                                                        'assets/images/output-onlinepngtools_(80).png',
-                                                      ).image,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
-                                                    child: ClipRRect(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed(
+                                                        'PhotoEditor');
+                                                  },
+                                                  child: Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFD1DBE3),
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/camera_(1).png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.fill,
+                                                              10.0),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/camera_(1).png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),

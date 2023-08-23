@@ -43,7 +43,6 @@ class _AdjustmentWidgetState extends State<AdjustmentWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
-      height: 160.0,
       decoration: BoxDecoration(),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
@@ -84,7 +83,7 @@ class _AdjustmentWidgetState extends State<AdjustmentWidget> {
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 3.0, 5.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(5.0, 3.0, 5.0, 10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,71 +121,357 @@ class _AdjustmentWidgetState extends State<AdjustmentWidget> {
                         ],
                       ),
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 0.0, 0.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/brightness.png',
-                              width: 40.0,
-                              height: 40.0,
-                              fit: BoxFit.none,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Brightness',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Slider(
-                            activeColor: FlutterFlowTheme.of(context).primary,
-                            inactiveColor:
-                                FlutterFlowTheme.of(context).alternate,
-                            min: 0.0,
-                            max: 100.0,
-                            value: _model.sliderValue1 ??= 5.0,
-                            onChanged: (newValue) {
-                              newValue =
-                                  double.parse(newValue.toStringAsFixed(2));
-                              setState(() => _model.sliderValue1 = newValue);
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 0.0, 0.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/drop_(1).png',
-                              width: 40.0,
-                              height: 40.0,
-                              fit: BoxFit.none,
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue1 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue1 = newValue);
+                                },
+                              ),
                             ),
-                          ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Saturation',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue2 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue2 = newValue);
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Exposure',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue3 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue3 = newValue);
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Shadow',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue4 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue4 = newValue);
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Highlighted',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue5 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue5 = newValue);
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Vignette',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue6 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue6 = newValue);
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Faded',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue7 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue7 = newValue);
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Vibrancy',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue8 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue8 = newValue);
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Temperature',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue9 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue9 = newValue);
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Contrast',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Slider(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                min: 0.0,
+                                max: 100.0,
+                                value: _model.sliderValue10 ??= 5.0,
+                                onChanged: (newValue) {
+                                  newValue =
+                                      double.parse(newValue.toStringAsFixed(2));
+                                  setState(
+                                      () => _model.sliderValue10 = newValue);
+                                },
+                              ),
+                            ),
+                          ].addToEnd(SizedBox(height: 20.0)),
                         ),
-                        Expanded(
-                          child: Slider(
-                            activeColor: FlutterFlowTheme.of(context).primary,
-                            inactiveColor:
-                                FlutterFlowTheme.of(context).alternate,
-                            min: 0.0,
-                            max: 100.0,
-                            value: _model.sliderValue2 ??= 5.0,
-                            onChanged: (newValue) {
-                              newValue =
-                                  double.parse(newValue.toStringAsFixed(2));
-                              setState(() => _model.sliderValue2 = newValue);
-                            },
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ],
                 ),

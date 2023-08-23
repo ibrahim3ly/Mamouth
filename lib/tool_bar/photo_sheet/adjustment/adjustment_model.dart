@@ -13,6 +13,22 @@ class AdjustmentModel extends FlutterFlowModel {
   double? sliderValue1;
   // State field(s) for Slider widget.
   double? sliderValue2;
+  // State field(s) for Slider widget.
+  double? sliderValue3;
+  // State field(s) for Slider widget.
+  double? sliderValue4;
+  // State field(s) for Slider widget.
+  double? sliderValue5;
+  // State field(s) for Slider widget.
+  double? sliderValue6;
+  // State field(s) for Slider widget.
+  double? sliderValue7;
+  // State field(s) for Slider widget.
+  double? sliderValue8;
+  // State field(s) for Slider widget.
+  double? sliderValue9;
+  // State field(s) for Slider widget.
+  double? sliderValue10;
 
   /// Initialization and disposal methods.
 

@@ -36,12 +36,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => HomeWidget(),
+      errorBuilder: (context, state) => CollageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => HomeWidget(),
+          builder: (context, _) => CollageWidget(),
         ),
         FFRoute(
           name: 'Profile',
@@ -67,6 +67,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Home',
           path: '/home',
           builder: (context, params) => HomeWidget(),
+        ),
+        FFRoute(
+          name: 'Collage',
+          path: '/collage',
+          builder: (context, params) => CollageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

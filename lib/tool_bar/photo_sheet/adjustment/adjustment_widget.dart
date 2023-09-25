@@ -1,6 +1,8 @@
+import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,7 +53,7 @@ class _AdjustmentWidgetState extends State<AdjustmentWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.00, 0.00),
               child: Container(
                 width: 40.0,
                 height: 8.0,
@@ -89,7 +91,7 @@ class _AdjustmentWidgetState extends State<AdjustmentWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.00, 0.00),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 0.0, 0.0),
@@ -129,344 +131,88 @@ class _AdjustmentWidgetState extends State<AdjustmentWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Brightness',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
+                            Slider(
+                              activeColor: FlutterFlowTheme.of(context).primary,
+                              inactiveColor:
+                                  FlutterFlowTheme.of(context).alternate,
+                              min: 0.0,
+                              max: 10.0,
+                              value: _model.sliderValue ??= 5.0,
+                              onChanged: (newValue) {
+                                newValue =
+                                    double.parse(newValue.toStringAsFixed(2));
+                                setState(() => _model.sliderValue = newValue);
+                              },
+                            ),
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 8.0, 0.0, 0.0),
+                                    child: FlutterFlowChoiceChips(
+                                      options: [
+                                        ChipData('Brightness'),
+                                        ChipData('Contrast'),
+                                        ChipData('Saturation'),
+                                        ChipData('Exposure'),
+                                        ChipData('Shadow'),
+                                        ChipData('Vignette'),
+                                        ChipData('Highlighted'),
+                                        ChipData('Faded'),
+                                        ChipData('Vibrancy'),
+                                        ChipData('Temperature')
+                                      ],
+                                      onChanged: (val) => setState(() =>
+                                          _model.choiceChipsValue = val?.first),
+                                      selectedChipStyle: ChipStyle(
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                        iconColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        iconSize: 18.0,
+                                        elevation: 4.0,
                                       ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue1 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue1 = newValue);
-                                },
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Saturation',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
+                                      unselectedChipStyle: ChipStyle(
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                            ),
+                                        iconColor: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        iconSize: 18.0,
+                                        elevation: 0.0,
                                       ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue2 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue2 = newValue);
-                                },
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Exposure',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
+                                      chipSpacing: 12.0,
+                                      rowSpacing: 12.0,
+                                      multiselect: false,
+                                      alignment: WrapAlignment.start,
+                                      controller:
+                                          _model.choiceChipsValueController ??=
+                                              FormFieldController<List<String>>(
+                                        [],
                                       ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue3 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue3 = newValue);
-                                },
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Shadow',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue4 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue4 = newValue);
-                                },
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Highlighted',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue5 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue5 = newValue);
-                                },
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Vignette',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue6 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue6 = newValue);
-                                },
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Faded',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue7 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue7 = newValue);
-                                },
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Vibrancy',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue8 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue8 = newValue);
-                                },
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Temperature',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue9 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue9 = newValue);
-                                },
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Contrast',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 13.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
-                              child: Slider(
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                min: 0.0,
-                                max: 100.0,
-                                value: _model.sliderValue10 ??= 5.0,
-                                onChanged: (newValue) {
-                                  newValue =
-                                      double.parse(newValue.toStringAsFixed(2));
-                                  setState(
-                                      () => _model.sliderValue10 = newValue);
-                                },
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ].addToEnd(SizedBox(height: 20.0)),

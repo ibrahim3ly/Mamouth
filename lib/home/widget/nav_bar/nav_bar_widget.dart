@@ -115,8 +115,8 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   color: Color(0xFF9299A1),
                   size: 24.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  context.pushNamed('Graphics');
                 },
               ),
               Column(
@@ -154,8 +154,8 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   color: Color(0xFF9299A1),
                   size: 24.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  context.pushNamed('TemplateList');
                 },
               ),
               FlutterFlowIconButton(

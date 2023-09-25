@@ -69,7 +69,7 @@ class _PhotoeditorbarWidgetState extends State<PhotoeditorbarWidget>
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: AlignmentDirectional(0.00, 1.00),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 1.0,
         height: 80.0,
@@ -158,7 +158,7 @@ class _PhotoeditorbarWidgetState extends State<PhotoeditorbarWidget>
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -249,7 +249,7 @@ class _PhotoeditorbarWidgetState extends State<PhotoeditorbarWidget>
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -295,10 +295,13 @@ class _PhotoeditorbarWidgetState extends State<PhotoeditorbarWidget>
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: AdjustmentWidget(),
+                                child: Container(
+                                  height: 185.0,
+                                  child: AdjustmentWidget(),
+                                ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,

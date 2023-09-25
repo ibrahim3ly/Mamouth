@@ -2,6 +2,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/home/widget/device/device_widget.dart';
 import '/home/widget/nav_bar/nav_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -29,6 +31,19 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
+        VisibilityEffect(duration: 1.ms),
+        MoveEffect(
+          curve: Curves.linear,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(-62.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
@@ -36,11 +51,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           begin: 0.0,
           end: 1.0,
         ),
+      ],
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 90.0),
+          begin: Offset(26.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -64,7 +85,26 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
         ),
       ],
     ),
-    'textOnPageLoadAnimation': AnimationInfo(
+    'containerOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 90.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         VisibilityEffect(duration: 1.ms),
@@ -84,7 +124,28 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
     super.initState();
     _model = createModel(context, () => HomeModel());
 
-    _model.textController ??= TextEditingController();
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return GestureDetector(
+            onTap: () =>
+                FocusScope.of(context).requestFocus(_model.unfocusNode),
+            child: Padding(
+              padding: MediaQuery.viewInsetsOf(context),
+              child: Container(
+                height: 355.0,
+                child: DeviceWidget(),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+    });
   }
 
   @override
@@ -127,13 +188,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       size: 24.0,
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.00, 0.00),
                       child: Text(
                         'Connected',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              color: Color(0xCFD1DBE3),
+                              color: Color(0x9FBB6BD9),
                               fontWeight: FontWeight.w300,
                             ),
                       ),
@@ -186,8 +247,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     borderWidth: 0.0,
                                     buttonSize: 35.0,
                                     icon: Icon(
-                                      Icons.photo_size_select_small_sharp,
-                                      color: Colors.white,
+                                      Icons.quiz,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                       size: 22.0,
                                     ),
                                     onPressed: () {
@@ -199,7 +261,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     .around(SizedBox(width: 0.0)),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.00, 0.00),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 10.0),
@@ -208,103 +270,64 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'MAMMOTH',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Open Sans',
-                                              color: Colors.white,
-                                              fontSize: 24.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      Text(
-                                        'Print your creative drawings',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color: Colors.white,
-                                            ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 10.0, 0.0),
-                                        child: TextFormField(
-                                          controller: _model.textController,
-                                          readOnly: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            isDense: true,
-                                            labelText: 'Label here...',
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color: Color(0x7A14181B),
-                                                    ),
-                                            errorStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
-                                                    ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Colors.white,
-                                                width: 1.0,
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: 100.0,
+                                            height: 100.0,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: Image.asset(
+                                                  'assets/images/logo.png',
+                                                ).image,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(5.0),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
+                                              border: Border.all(
+                                                color: Color(0x46FFFFFF),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
                                             ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                            ),
-                                            filled: true,
-                                            fillColor: Colors.white,
-                                            prefixIcon: Icon(
-                                              Icons.search_outlined,
-                                              size: 22.0,
-                                            ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'containerOnPageLoadAnimation1']!),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'MAMMOTH',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.white,
+                                                          fontSize: 24.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'textOnPageLoadAnimation1']!),
+                                              Text(
+                                                'Print your creative drawings',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.white,
+                                                        ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'textOnPageLoadAnimation2']!),
+                                            ].divide(SizedBox(height: 5.0)),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Color(0x7A14181B),
-                                              ),
-                                          validator: _model
-                                              .textControllerValidator
-                                              .asValidator(context),
-                                        ),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ],
                                   ),
@@ -318,56 +341,35 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Container(
-                                          width: 45.0,
-                                          height: 45.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xF7FFFFFF),
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                            shape: BoxShape.rectangle,
-                                          ),
-                                          child: Opacity(
-                                            opacity: 0.6,
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.asset(
-                                                  'assets/images/mini-printer_(1).png',
-                                                  width: 32.0,
-                                                  height: 32.0,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Text(
-                                          'My Device',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color: Colors.white,
-                                                fontSize: 12.0,
-                                                fontWeight: FontWeight.w300,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(height: 5.0)),
-                                    ),
                                     InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.pushNamed('TemplateList');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () =>
+                                                  FocusScope.of(context)
+                                                      .requestFocus(
+                                                          _model.unfocusNode),
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: Container(
+                                                  height: 355.0,
+                                                  child: DeviceWidget(),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -376,7 +378,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             width: 45.0,
                                             height: 45.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xF7FFFFFF),
+                                              color: Colors.white,
                                               borderRadius:
                                                   BorderRadius.circular(15.0),
                                               shape: BoxShape.rectangle,
@@ -385,13 +387,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               opacity: 0.6,
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                    0.00, 0.00),
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
                                                   child: Image.asset(
-                                                    'assets/images/layout_(1).png',
+                                                    'assets/images/mini-printer_(1).png',
                                                     width: 32.0,
                                                     height: 32.0,
                                                     fit: BoxFit.contain,
@@ -401,7 +403,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             ),
                                           ),
                                           Text(
-                                            'Templates',
+                                            'My Device',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -430,7 +432,50 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             opacity: 0.6,
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                                  0.00, 0.00),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.asset(
+                                                  'assets/images/layout_(1).png',
+                                                  width: 32.0,
+                                                  height: 32.0,
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Text(
+                                          'Templates',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color: Colors.white,
+                                                fontSize: 12.0,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(height: 5.0)),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          width: 45.0,
+                                          height: 45.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xF7FFFFFF),
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                            shape: BoxShape.rectangle,
+                                          ),
+                                          child: Opacity(
+                                            opacity: 0.6,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.00, 0.00),
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -473,7 +518,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             opacity: 0.6,
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                                  0.00, 0.00),
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -514,7 +559,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Container(
                                 width: 170.0,
@@ -522,7 +567,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 child: Stack(
                                   children: [
                                     Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 1.00),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 0.0),
@@ -540,31 +586,44 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           ),
                                           child: Opacity(
                                             opacity: 0.4,
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.1,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x00F2F2F2),
-                                                image: DecorationImage(
-                                                  fit: BoxFit.cover,
-                                                  image: Image.asset(
-                                                    'assets/images/output-onlinepngtools.png',
-                                                  ).image,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                border: Border.all(
-                                                  color: Color(0xFF191647),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed('Graphics');
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.1,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00F2F2F2),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.asset(
+                                                      'assets/images/output-onlinepngtools.png',
+                                                    ).image,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFF191647),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation1']!),
+                                            'containerOnPageLoadAnimation2']!),
                                       ),
                                     ),
                                     Padding(
@@ -574,7 +633,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.asset(
-                                          'assets/images/ideas.png',
+                                          'assets/images/editorial.png',
                                           width: 40.0,
                                           height: 40.0,
                                           fit: BoxFit.cover,
@@ -585,23 +644,33 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       opacity: 0.5,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.00, 0.00),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 40.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Ai Creativ',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: Color(0xFF191647),
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 5.0,
-                                                  fontWeight: FontWeight.w900,
-                                                  lineHeight: 2.0,
-                                                ),
+                                                  8.0, 35.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed('Graphics');
+                                            },
+                                            child: Text(
+                                              'Graphics',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: Color(0xFF191647),
+                                                    fontSize: 20.0,
+                                                    letterSpacing: 5.0,
+                                                    fontWeight: FontWeight.w900,
+                                                    lineHeight: 2.0,
+                                                  ),
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -615,7 +684,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 child: Stack(
                                   children: [
                                     Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 1.00),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 0.0),
@@ -633,31 +703,45 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           ),
                                           child: Opacity(
                                             opacity: 0.4,
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.1,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x00F2F2F2),
-                                                image: DecorationImage(
-                                                  fit: BoxFit.cover,
-                                                  image: Image.asset(
-                                                    'assets/images/output-onlinepngtools.png',
-                                                  ).image,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                border: Border.all(
-                                                  color: Color(0xFF191647),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context
+                                                    .pushNamed('TemplateList');
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.1,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00F2F2F2),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.asset(
+                                                      'assets/images/output-onlinepngtools.png',
+                                                    ).image,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFF191647),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation2']!),
+                                            'containerOnPageLoadAnimation3']!),
                                       ),
                                     ),
                                     Padding(
@@ -678,36 +762,49 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       opacity: 0.5,
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.00, 0.00),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 40.0, 0.0, 0.0),
-                                          child: Text(
-                                            'My Studio',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: Color(0xFF191647),
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 5.0,
-                                                  fontWeight: FontWeight.w900,
-                                                  lineHeight: 2.0,
-                                                ),
+                                                  8.0, 35.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed('TemplateList');
+                                            },
+                                            child: Text(
+                                              'Templates',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: Color(0xFF191647),
+                                                    fontSize: 20.0,
+                                                    letterSpacing: 5.0,
+                                                    fontWeight: FontWeight.w900,
+                                                    lineHeight: 2.0,
+                                                  ),
+                                            ),
                                           ).animateOnPageLoad(animationsMap[
-                                              'textOnPageLoadAnimation']!),
+                                              'textOnPageLoadAnimation3']!),
                                         ),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                            ].divide(SizedBox(width: 8.0)),
+                            ]
+                                .divide(SizedBox(width: 8.0))
+                                .addToStart(SizedBox(width: 3.0))
+                                .addToEnd(SizedBox(width: 3.0)),
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.00, 0.00),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 13.0, 13.0, 0.0, 0.0),
@@ -743,37 +840,50 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
                                             children: [
-                                              Container(
-                                                width: 70.0,
-                                                height: 163.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFD1DBE3),
-                                                  image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: Image.asset(
-                                                      'assets/images/output-onlinepngtools.png',
-                                                    ).image,
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed('Note');
+                                                },
+                                                child: Container(
+                                                  width: 70.0,
+                                                  height: 163.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFD1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools.png',
+                                                      ).image,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                child: Opacity(
-                                                  opacity: 0.8,
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/listing.png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.contain,
+                                                  child: Opacity(
+                                                    opacity: 0.8,
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/listing.png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.contain,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -793,83 +903,56 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               ),
                                             ].divide(SizedBox(height: 8.0)),
                                           ),
-                                      () => InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed('Profile');
-                                            },
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                        'PhotoEditor');
-                                                  },
-                                                  child: Container(
-                                                    width: 60.0,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFD1DBE3),
-                                                      image: DecorationImage(
-                                                        fit: BoxFit.cover,
-                                                        image: Image.asset(
-                                                          'assets/images/output-onlinepngtools_(80).png',
-                                                        ).image,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  8.0,
-                                                                  8.0,
-                                                                  8.0,
-                                                                  8.0),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.asset(
-                                                          'assets/images/camera_(1).png',
-                                                          width: 100.0,
-                                                          height: 75.0,
-                                                          fit: BoxFit.fill,
-                                                        ),
-                                                      ),
+                                      () => Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Container(
+                                                width: 60.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFD1DBE3),
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.asset(
+                                                      'assets/images/output-onlinepngtools_(80).png',
+                                                    ).image,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 8.0, 8.0, 8.0),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            0.0),
+                                                    child: Image.asset(
+                                                      'assets/images/camera_(1).png',
+                                                      width: 100.0,
+                                                      height: 75.0,
+                                                      fit: BoxFit.fill,
                                                     ),
                                                   ),
                                                 ),
-                                                Text(
-                                                  'Camera',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color: Colors.black,
-                                                        fontSize: 12.0,
-                                                      ),
-                                                ),
-                                              ].divide(SizedBox(height: 8.0)),
-                                            ),
+                                              ),
+                                              Text(
+                                                'Camera',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.black,
+                                                          fontSize: 12.0,
+                                                        ),
+                                              ),
+                                            ].divide(SizedBox(height: 8.0)),
                                           ),
                                       () => Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -939,34 +1022,45 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
                                             children: [
-                                              Container(
-                                                width: 60.0,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xCFD1DBE3),
-                                                  image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: Image.asset(
-                                                      'assets/images/output-onlinepngtools_(80).png',
-                                                    ).image,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
-                                                  child: ClipRRect(
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed('Collage');
+                                                },
+                                                child: Container(
+                                                  width: 60.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xCFD1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0.0),
-                                                    child: Image.asset(
-                                                      'assets/images/collage_(1).png',
-                                                      width: 100.0,
-                                                      height: 75.0,
-                                                      fit: BoxFit.fill,
+                                                            10.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 8.0,
+                                                                8.0, 8.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: Image.asset(
+                                                        'assets/images/collage_(1).png',
+                                                        width: 100.0,
+                                                        height: 75.0,
+                                                        fit: BoxFit.fill,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -990,34 +1084,45 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
                                             children: [
-                                              Container(
-                                                width: 60.0,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFD1DBE3),
-                                                  image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: Image.asset(
-                                                      'assets/images/output-onlinepngtools_(80).png',
-                                                    ).image,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
-                                                  child: ClipRRect(
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed('doc');
+                                                },
+                                                child: Container(
+                                                  width: 60.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFD1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0.0),
-                                                    child: Image.asset(
-                                                      'assets/images/document.png',
-                                                      width: 100.0,
-                                                      height: 75.0,
-                                                      fit: BoxFit.fill,
+                                                            10.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 8.0,
+                                                                8.0, 8.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: Image.asset(
+                                                        'assets/images/document.png',
+                                                        width: 100.0,
+                                                        height: 75.0,
+                                                        fit: BoxFit.fill,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -1041,34 +1146,45 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
                                             children: [
-                                              Container(
-                                                width: 60.0,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFD1DBE3),
-                                                  image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: Image.asset(
-                                                      'assets/images/output-onlinepngtools_(80).png',
-                                                    ).image,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
-                                                  child: ClipRRect(
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed('webview');
+                                                },
+                                                child: Container(
+                                                  width: 60.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFD1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0.0),
-                                                    child: Image.asset(
-                                                      'assets/images/domain.png',
-                                                      width: 100.0,
-                                                      height: 75.0,
-                                                      fit: BoxFit.fill,
+                                                            10.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 8.0,
+                                                                8.0, 8.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: Image.asset(
+                                                        'assets/images/www.png',
+                                                        width: 100.0,
+                                                        height: 75.0,
+                                                        fit: BoxFit.fill,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -1092,34 +1208,45 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
                                             children: [
-                                              Container(
-                                                width: 60.0,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFD1DBE3),
-                                                  image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: Image.asset(
-                                                      'assets/images/output-onlinepngtools_(80).png',
-                                                    ).image,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
-                                                  child: ClipRRect(
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed('Drawing');
+                                                },
+                                                child: Container(
+                                                  width: 60.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFD1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0.0),
-                                                    child: Image.asset(
-                                                      'assets/images/father.png',
-                                                      width: 100.0,
-                                                      height: 75.0,
-                                                      fit: BoxFit.fill,
+                                                            10.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 8.0,
+                                                                8.0, 8.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
+                                                      child: Image.asset(
+                                                        'assets/images/father.png',
+                                                        width: 100.0,
+                                                        height: 75.0,
+                                                        fit: BoxFit.fill,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -1166,7 +1293,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.00, 0.00),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 13.0, 13.0, 0.0, 0.0),
@@ -1205,37 +1332,57 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 70.0,
-                                                  height: 163.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0x00D1DBE3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: Color(0xFFDDC6C6),
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed('Lable');
+                                                  },
+                                                  child: Container(
+                                                    width: 70.0,
+                                                    height: 163.0,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFD1DBE3),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  child: Opacity(
-                                                    opacity: 0.8,
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  8.0,
-                                                                  8.0,
-                                                                  8.0,
-                                                                  8.0),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.asset(
-                                                          'assets/images/tag.png',
-                                                          width: 100.0,
-                                                          height: 75.0,
-                                                          fit: BoxFit.contain,
+                                                    child: Opacity(
+                                                      opacity: 0.8,
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    8.0,
+                                                                    8.0,
+                                                                    8.0,
+                                                                    8.0),
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          child: Image.asset(
+                                                            'assets/images/tag.png',
+                                                            width: 100.0,
+                                                            height: 75.0,
+                                                            fit: BoxFit.contain,
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -1264,28 +1411,33 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 60.0,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0x00D1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
                                                     border: Border.all(
-                                                      color: Color(0xFFDDC6C6),
+                                                      color: Color(0xFFD1DBE3),
                                                     ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(3.0, 3.0,
-                                                                3.0, 3.0),
+                                                            .fromSTEB(8.0, 8.0,
+                                                                8.0, 8.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               0.0),
                                                       child: Image.asset(
-                                                        'assets/images/scanning.png',
+                                                        'assets/images/ocr.png',
                                                         width: 100.0,
                                                         height: 75.0,
-                                                        fit: BoxFit.cover,
+                                                        fit: BoxFit.fill,
                                                       ),
                                                     ),
                                                   ),
@@ -1313,25 +1465,30 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 60.0,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0x00D1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
                                                     border: Border.all(
-                                                      color: Color(0xFFDDC6C6),
+                                                      color: Color(0xFFD1DBE3),
                                                     ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(3.0, 3.0,
-                                                                3.0, 3.0),
+                                                            .fromSTEB(8.0, 8.0,
+                                                                8.0, 8.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               0.0),
                                                       child: Image.asset(
-                                                        'assets/images/qr-code_(1).png',
+                                                        'assets/images/barcode-scan.png',
                                                         width: 100.0,
                                                         height: 75.0,
                                                         fit: BoxFit.fill,
@@ -1362,19 +1519,24 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 60.0,
                                                   height: 60.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0x00D1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
                                                     border: Border.all(
-                                                      color: Color(0xFFDDC6C6),
+                                                      color: Color(0xFFD1DBE3),
                                                     ),
                                                   ),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(3.0, 3.0,
-                                                                3.0, 3.0),
+                                                            .fromSTEB(8.0, 8.0,
+                                                                8.0, 8.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1407,32 +1569,55 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0x00D1DBE3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: Color(0xFFDDC6C6),
-                                                    ),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(3.0, 3.0,
-                                                                3.0, 3.0),
-                                                    child: ClipRRect(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context
+                                                        .pushNamed('Diagram');
+                                                  },
+                                                  child: Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/speech-bubbles.png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.fill,
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFD1DBE3),
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/hierarchy.png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -1456,32 +1641,54 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0x00D1DBE3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: Color(0xFFDDC6C6),
-                                                    ),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(3.0, 3.0,
-                                                                3.0, 3.0),
-                                                    child: ClipRRect(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed('Charts');
+                                                  },
+                                                  child: Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/pie-chart.png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.fill,
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFD1DBE3),
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/pie-chart.png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -1505,38 +1712,60 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0x00D1DBE3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: Color(0xFFDDC6C6),
-                                                    ),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(3.0, 3.0,
-                                                                3.0, 3.0),
-                                                    child: ClipRRect(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed('Task');
+                                                  },
+                                                  child: Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/father.png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.fill,
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFD1DBE3),
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/sticky-note.png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                                 Text(
-                                                  'Drawing',
+                                                  'Task',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1554,29 +1783,54 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
-                                                    child: ClipRRect(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed('Map');
+                                                  },
+                                                  child: Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/ocr.png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.fill,
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFD1DBE3),
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/map.png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -1600,29 +1854,54 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
-                                                    child: ClipRRect(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed('Tag');
+                                                  },
+                                                  child: Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/barcode-scan.png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.fill,
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFD1DBE3),
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/mention.png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -1646,29 +1925,55 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 70.0,
-                                                  height: 163.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
-                                                    child: ClipRRect(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context
+                                                        .pushNamed('Timeline');
+                                                  },
+                                                  child: Container(
+                                                    width: 70.0,
+                                                    height: 163.0,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/text-tool.png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.contain,
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFD1DBE3),
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/timeline.png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.contain,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -1697,10 +2002,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   width: 70.0,
                                                   height: 163.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: Image.asset(
+                                                        'assets/images/output-onlinepngtools_(80).png',
+                                                      ).image,
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             10.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFD1DBE3),
+                                                    ),
                                                   ),
                                                   child: Padding(
                                                     padding:
@@ -1712,7 +2025,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           BorderRadius.circular(
                                                               0.0),
                                                       child: Image.asset(
-                                                        'assets/images/picture.png',
+                                                        'assets/images/discussion.png',
                                                         width: 100.0,
                                                         height: 75.0,
                                                         fit: BoxFit.contain,
@@ -1721,7 +2034,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Text(
-                                                  'Hello World',
+                                                  'AI Chat GPT',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1740,35 +2053,61 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
-                                                    child: ClipRRect(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context
+                                                        .pushNamed('Calendar');
+                                                  },
+                                                  child: Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/font.png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.fill,
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFD1DBE3),
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/reminder.png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                                 Text(
-                                                  'Markdown',
+                                                  'Calendar',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1786,35 +2125,61 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Container(
-                                                  width: 60.0,
-                                                  height: 60.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFD1DBE3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
-                                                    child: ClipRRect(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context
+                                                        .pushNamed('Markdown');
+                                                  },
+                                                  child: Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: Image.asset(
+                                                          'assets/images/output-onlinepngtools_(80).png',
+                                                        ).image,
+                                                      ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
-                                                      child: Image.asset(
-                                                        'assets/images/tag.png',
-                                                        width: 100.0,
-                                                        height: 75.0,
-                                                        fit: BoxFit.fill,
+                                                              10.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFFD1DBE3),
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0,
+                                                                  8.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                        child: Image.asset(
+                                                          'assets/images/to-do-list.png',
+                                                          width: 100.0,
+                                                          height: 75.0,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                                 Text(
-                                                  'Lable Sticker',
+                                                  'Markdown',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1841,7 +2206,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.00, 1.00),
                 child: Stack(
                   children: [
                     wrapWithModel(

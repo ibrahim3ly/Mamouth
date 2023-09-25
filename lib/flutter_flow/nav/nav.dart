@@ -36,12 +36,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => CollageWidget(),
+      errorBuilder: (context, state) => HomeWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => CollageWidget(),
+          builder: (context, _) => HomeWidget(),
         ),
         FFRoute(
           name: 'Profile',
@@ -72,6 +72,91 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Collage',
           path: '/collage',
           builder: (context, params) => CollageWidget(),
+        ),
+        FFRoute(
+          name: 'webview',
+          path: '/webview',
+          builder: (context, params) => WebviewWidget(),
+        ),
+        FFRoute(
+          name: 'doc',
+          path: '/doc',
+          builder: (context, params) => DocWidget(),
+        ),
+        FFRoute(
+          name: 'Diagram',
+          path: '/diagram',
+          builder: (context, params) => DiagramWidget(),
+        ),
+        FFRoute(
+          name: 'Charts',
+          path: '/charts',
+          builder: (context, params) => ChartsWidget(),
+        ),
+        FFRoute(
+          name: 'Map',
+          path: '/map',
+          builder: (context, params) => MapWidget(),
+        ),
+        FFRoute(
+          name: 'Timeline',
+          path: '/timeline',
+          builder: (context, params) => TimelineWidget(),
+        ),
+        FFRoute(
+          name: 'Task',
+          path: '/task',
+          builder: (context, params) => TaskWidget(),
+        ),
+        FFRoute(
+          name: 'Banner',
+          path: '/banner',
+          builder: (context, params) => BannerWidget(),
+        ),
+        FFRoute(
+          name: 'Calendar',
+          path: '/calendar',
+          builder: (context, params) => CalendarWidget(),
+        ),
+        FFRoute(
+          name: 'Lable',
+          path: '/lable',
+          builder: (context, params) => LableWidget(),
+        ),
+        FFRoute(
+          name: 'Markdown',
+          path: '/markdown',
+          builder: (context, params) => MarkdownWidget(),
+        ),
+        FFRoute(
+          name: 'Tag',
+          path: '/tag',
+          builder: (context, params) => TagWidget(),
+        ),
+        FFRoute(
+          name: 'Drawing',
+          path: '/drawing',
+          builder: (context, params) => DrawingWidget(),
+        ),
+        FFRoute(
+          name: 'Note',
+          path: '/note',
+          builder: (context, params) => NoteWidget(),
+        ),
+        FFRoute(
+          name: 'Graphics',
+          path: '/graphics',
+          builder: (context, params) => GraphicsWidget(),
+        ),
+        FFRoute(
+          name: 'GraphicsDetails',
+          path: '/graphicsDetails',
+          builder: (context, params) => GraphicsDetailsWidget(),
+        ),
+        FFRoute(
+          name: 'TemplateDetails',
+          path: '/templateDetails',
+          builder: (context, params) => TemplateDetailsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
